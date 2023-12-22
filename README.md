@@ -25,3 +25,7 @@ If you use this code in your research, please cite the following paper
 
 }
 ```
+
+## Contact Information
+
+If interested, contact stefano.riva@polimi.it
