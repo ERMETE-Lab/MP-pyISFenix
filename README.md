@@ -19,6 +19,11 @@ Here's some useful background references:
 ## How to cite
 If you use this code in your research, please cite the following paper
 
+- S. Riva, C. Introini, and A. Cammi, “*A finite element implementation of the incompressible Schroedinger flow method*,” Physics of Fluids, vol. 36, p. 017138, 01 2024
+
+
+Here in bibtex format
+
 ```bibtex
 @article{AIP_202401,
     author = {\textbf{\underline{Stefano Riva}} and Introini, Carolina and Cammi, Antonio},
