@@ -6,6 +6,8 @@
 
 This repository collects some codes implemented to simulate inviscid fluids by means of the ISF technique, firstly developed by [Albert Chern](https://cseweb.ucsd.edu/~alchern/), adopting Finite Element Methods exploiting the [FEniCSx Library (v. 0.6.0)](https://fenicsproject.org/) for Python, extension to v 0.7.2 is under development.
 
+A **webpage** has been created at the following link [https://ermete-lab.github.io/MP-pyISFenix/intro.html](https://ermete-lab.github.io/MP-pyISFenix/intro.html), including the API documentation of the solvers and some tutorials resembling the case studies of the published papers.
+
 --------------------------------
 
 The ISF algorithm is based on the Madelung transform, an analogy between the wave functions governed by the Schrodinger equation and the velocity field for inviscid fluids.
@@ -41,3 +43,7 @@ Here in bibtex format
     eprint = {https://pubs.aip.org/aip/pof/article-pdf/doi/10.1063/5.0180356/18930833/017138\_1\_5.0180356.pdf},
 }
 ```
+
+## Contact Information
+
+If interested, please contact stefano.riva@polimi.it
