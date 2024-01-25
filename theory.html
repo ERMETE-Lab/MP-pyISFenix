@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Theory &#8212; ISF  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "tags": "ams", "useLabelIds": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'theory';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Solvers" href="solvers.html" />
+    <link rel="prev" title="Welcome to pyISFenix docs" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">ISF  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="intro.html">
+                        Welcome to pyISFenix docs
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Theory
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="solvers.html">
+                        Solvers
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="bibliography.html">
+                        Bibliography
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="intro.html">
+                        Welcome to pyISFenix docs
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Theory
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="solvers.html">
+                        Solvers
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="bibliography.html">
+                        Bibliography
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Theory</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="theory">
+<h1>Theory<a class="headerlink" href="#theory" title="Permalink to this heading">#</a></h1>
+<p>In this page, some theoretical aspects are discussed regarding the idea behind Madelung transformation, the ISF algorithm and some elements on functional analysis and weak formulation.
+For a complete description of the mathematics of the methods please refer to the ISF papers <span id="id1">[<a class="reference internal" href="bibliography.html#id5" title="Albert Chern. Fluid Dynamics with Incompressible Schroedinger Flow. PhD thesis, California Institute of Technology, 2017. doi:10.7907/Z98050N3.">Che17</a>, <a class="reference internal" href="bibliography.html#id6" title="Albert Chern, Felix Knöppel, Ulrich Pinkall, Peter Schröder, and Steffen Weißmann. Schrödinger's smoke. ACM Trans. Graph., 7 2016. URL: https://doi.org/10.1145/2897824.2925868, doi:10.1145/2897824.2925868.">CKP+16</a>, <a class="reference internal" href="bibliography.html#id7" title="Stefano Riva, Carolina Introini, and Antonio Cammi. A finite element implementation of the incompressible schrödinger flow method. Physics of Fluids, 2023.">RIC23</a>]</span> or to numerical analysis books <span id="id2">[<a class="reference internal" href="bibliography.html#id16" title="A. Ferrero, F. Gazzola, and M. Zanotti. Elements of Advanced Mathematical Analysis for Physics and Engineering. Società Editrice Esculapio, iii edition, 2015. ISBN 9788874888955.">FGZ15</a>, <a class="reference internal" href="bibliography.html#id9" title="Alfio Quarteroni. Numerical Models for Differential Problems. Springer, Cham, iii edition, 2016.">Qua16</a>, <a class="reference internal" href="bibliography.html#id10" title="Alfio Quarteroni, Riccardo Sacco, and Fausto Saleri. Numerical Mathematics. Springer, Berlin, Heidelberg, ii edition, 2007. ISBN 978-3-540-49809-4.">QSS07</a>]</span>. For the Finite Element implementation and the derivation of the weak formulations for this problem see the paper <span id="id3">[<a class="reference internal" href="bibliography.html#id7" title="Stefano Riva, Carolina Introini, and Antonio Cammi. A finite element implementation of the incompressible schrödinger flow method. Physics of Fluids, 2023.">RIC23</a>]</span>.</p>
+<section id="madelung-transformation">
+<h2>Madelung Transformation<a class="headerlink" href="#madelung-transformation" title="Permalink to this heading">#</a></h2>
+<p>The <em>Incompressible Schrodinger Flow</em> is a novel numerical technique, developed in <span id="id4">[<a class="reference internal" href="bibliography.html#id6" title="Albert Chern, Felix Knöppel, Ulrich Pinkall, Peter Schröder, and Steffen Weißmann. Schrödinger's smoke. ACM Trans. Graph., 7 2016. URL: https://doi.org/10.1145/2897824.2925868, doi:10.1145/2897824.2925868.">CKP+16</a>]</span> and <span id="id5">[<a class="reference internal" href="bibliography.html#id5" title="Albert Chern. Fluid Dynamics with Incompressible Schroedinger Flow. PhD thesis, California Institute of Technology, 2017. doi:10.7907/Z98050N3.">Che17</a>]</span>, able to describe inviscid fluids behaviour using the Schrodinger equation. This section gives some basic concepts on the analogy between hydrodynamics and quantum mechanics <span id="id6">[<a class="reference internal" href="bibliography.html#id2" title="E Madelung. Eine anschauliche deutung der gleichung von schrödinger. Naturwissenschaften, 14:1004, 1926. URL: https://doi.org/10.1007/BF01504657, doi:10.1007/BF01504657.">Mad26</a>]</span>, onto which ISF is based, along with the description of the solution algorithm.</p>
+<p>The Schrodinger equation is able to describe the time evolution of this physical state, subjected to a certain potential field <span class="math notranslate nohighlight">\(p\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    i\hbar \frac{\partial\psi}{\partial t} = -\frac{\hbar^2}{2}\Delta \psi + p \psi.
+\end{equation*}\]</div>
+<p>In the context of ISF, the wave function is used to describe inviscid flows, the probabilistic interpretation of the quantum mechanics is no more used, instead the ISF is set in the analogy between hydrodynamics and quantum mechanics is no more used, instead the ISF is set in the analogy between hydrodynamics and quantum mechanics, proposed by Madelung in 1926. The state of the system can be described by a 2 components wave function <span id="id7">[<a class="reference internal" href="bibliography.html#id6" title="Albert Chern, Felix Knöppel, Ulrich Pinkall, Peter Schröder, and Steffen Weißmann. Schrödinger's smoke. ACM Trans. Graph., 7 2016. URL: https://doi.org/10.1145/2897824.2925868, doi:10.1145/2897824.2925868.">CKP+16</a>]</span>, i.e. <span class="math notranslate nohighlight">\(\Psi=[\psi_1,\psi_2]^T\in\mathbb{C}^2\)</span>, which is the solution of the following Schrodinger equation, i.e.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    i\hbar\frac{\partial\Psi}{\partial t} =- \frac{\hbar^2}{2}\Delta \Psi+p\Psi\longleftrightarrow
+    i\hbar\frac{\partial}{\partial t}\left[\begin{array}{cc} \psi_1 \\ \psi_2\end{array}\right] = -\frac{\hbar^2}{2}\Delta \left[\begin{array}{cc} \psi_1 \\ \psi_2\end{array}\right]+p\left[\begin{array}{cc} \psi_1 \\ \psi_2\end{array}\right].
+\end{equation*}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the flow field were described by a single wave function wave function <span class="math notranslate nohighlight">\(\psi\in\mathbb{C}\)</span>, the associated velocity field would be characterised by a null vorticity, which is generally not true.</p>
+</div>
+<p>The wave function can be translated into a flow field as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \mathbf{u} = \hbar\mbox{Re}\left\{-\left(\Psi^T\right)^*i\,\nabla\Psi\right\}.
+\end{equation*}\]</div>
+<p>It can be shown that the real and the imaginary part of this equation are linked to the continuity and momentum equation of the incompressible Euler equations</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \left\{
+    \begin{array}{l}
+        \nabla\cdot \mathbf{u} = 0 \\
+        \displaystyle\frac{\partial\mathbf{u}}{\partial t}+\left(\mathbf{u}\cdot \nabla\right)\mathbf{u} = -\nabla p
+    \end{array}
+    \right.
+\end{equation*}\]</div>
+<p>The viscosity, thus the dissipation, is not considered and the only existing external force is given by the potential <span class="math notranslate nohighlight">\(-\nabla p\)</span>. The spatial operators on the wave function <span class="math notranslate nohighlight">\(\Psi\)</span>, i.e. <span class="math notranslate nohighlight">\(-\frac{\hbar^2}{2}\Delta\)</span> and <span class="math notranslate nohighlight">\(p\)</span>, have a physical interpretation in the Euler equations on <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, i.e. the advection <span class="math notranslate nohighlight">\(\left(\mathbf{u}\cdot \nabla\right)\mathbf{u}\)</span> and the potential forces <span class="math notranslate nohighlight">\(-\nabla p\)</span>.</p>
+<p>In the end, the incompressibility constraint <span class="math notranslate nohighlight">\(\nabla \cdot \mathbf{u}=0\)</span> can be equivalently imposed to the wave function as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \mbox{Re}\left\{\left(\Psi^T\right)^*i\,\Delta\Psi\right\} = 0.
+    \label{eqn:SchrodingerIncCoinstraint}
+\end{equation*}\]</div>
+</section>
+<section id="isf-algorithm">
+<h2>ISF algorithm<a class="headerlink" href="#isf-algorithm" title="Permalink to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\Omega\)</span> be the spatial domain, <span class="math notranslate nohighlight">\(\partial \Omega\)</span> its boundary, usually composed by three different components <span class="math notranslate nohighlight">\(\Gamma_{in}\cup \Gamma_w\cup \Gamma_o\)</span> and let <span class="math notranslate nohighlight">\(\mathcal{T} = [0, T]\)</span> be the time interval considered. Given an initial condition <span class="math notranslate nohighlight">\(\Psi^0\)</span>, the Schrodinger equation with the incompressibility constraint, can be solved with a first order time splitting method</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A similar solution strategy is also employed in CFD, a very important example is the pioneering work of <span id="id8">[<a class="reference internal" href="bibliography.html#id14" title="Alexandre Joel Chorin. Numerical solution of the navier-stokes equations. Mathematics of Computation, 22(104):745–762, 1968.">Cho68</a>]</span>.</p>
+</div>
+<p>At each time step <span class="math notranslate nohighlight">\(t_n\rightarrow t_{n+1}\)</span>, the algorithm, in the space-continuous case solve the following problems:</p>
+<ul class="simple">
+<li><p>Schrodinger problem</p></li>
+<li><p>Normalisation</p></li>
+<li><p>Poisson equation (<em>pressure projection</em>)</p></li>
+<li><p>Phase Shift and velocity update</p></li>
+</ul>
+<section id="schrodinger-problem">
+<h3>Schrodinger problem<a class="headerlink" href="#schrodinger-problem" title="Permalink to this heading">#</a></h3>
+<p>The prediction step consists of a free-particle Schrodinger equation</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \frac{\tilde{\Psi}-\Psi^n}{\Delta t} = \frac{i \hbar}{2}\Delta \tilde{\Psi}
+\end{equation*}\]</div>
+<p>with the associated boundary conditions (a plane wave at the inlet and homogeneous Neumann boundaries for the others), i.e.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+     \left\{
+        \begin{array}{ll}
+            \displaystyle\tilde{\Psi} = e^{i\left(\mathbf{k}\cdot \mathbf{x}-\omega t\right)}\cdot \left[c_1, c_2\right]^T &amp; \text{ on }\Gamma_{in}\\
+            \nabla\tilde{\Psi}\cdot \mathbf{n}=0 &amp; \text{ on }\Gamma_w\cup \Gamma_o
+        \end{array}
+        \right.
+    \end{equation*}\]</div>
+<p>with <span class="math notranslate nohighlight">\(c_1,c_2 \in\mathbb{C}\)</span> such that <span class="math notranslate nohighlight">\(\sqrt{|c_1|^2+|c_2|^2}=1\)</span>.</p>
+</section>
+<section id="normalisation">
+<h3>Normalisation<a class="headerlink" href="#normalisation" title="Permalink to this heading">#</a></h3>
+<p>The wave function needs also to be normalised to 1, since this property is not necessarily conserved in the time-discrete case, i.e.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \tilde{\Psi} \longleftarrow\frac{\tilde{\Psi}}{\;||\tilde{\Psi}||_2} =
+    \frac{\tilde{\Psi}}{\sqrt{\tilde{\psi}_1^*\tilde{\psi}_1+\tilde{\psi}_2^*\tilde{\psi}_2}}  .
+\end{equation*}\]</div>
+</section>
+<section id="pressure-projection">
+<h3>Pressure Projection<a class="headerlink" href="#pressure-projection" title="Permalink to this heading">#</a></h3>
+<p>The correction phase involves a Poisson problem to enforce the incompressibility constraint. The unknown is <span class="math notranslate nohighlight">\(\varphi\)</span>, which is referred to as {pressure}, even though its units of measure are <span class="math notranslate nohighlight">\([m^2/s]\)</span>. This quantity has been introduced following the idea developed in <span id="id9">[<a class="reference internal" href="bibliography.html#id5" title="Albert Chern. Fluid Dynamics with Incompressible Schroedinger Flow. PhD thesis, California Institute of Technology, 2017. doi:10.7907/Z98050N3.">Che17</a>]</span>, which provides a complete discussion on this choice. Thus, the following Poisson problem is solved</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+        \left\{
+    \begin{array}{ll}
+       \Delta \varphi = \nabla \cdot \tilde{\mathbf{u}} &amp; \mbox{ in }\Omega \\
+       \varphi = 0 &amp; \mbox{ on } \Gamma_{in}\\
+        \nabla\varphi\cdot \mathbf{n}=0 &amp; \mbox{ on } \Gamma_w\\ 
+        \text{Outlet BC} &amp; \mbox{ on } \Gamma_o
+    \end{array}
+    \right. 
+    \label{eqn: Poisson-Strong}
+\end{equation*}\]</div>
+<p>in which <span class="math notranslate nohighlight">\(\tilde{\mathbf{u}}\)</span> is the velocity field computed from <span class="math notranslate nohighlight">\(\tilde{\Psi}\)</span>. The outlet boundary condition can be either a non-homogeneous Neumann or an homogeneous Dirichlet, refer to <span id="id10">[<a class="reference internal" href="bibliography.html#id7" title="Stefano Riva, Carolina Introini, and Antonio Cammi. A finite element implementation of the incompressible schrödinger flow method. Physics of Fluids, 2023.">RIC23</a>]</span> for the details.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This idea is very similar to the standard CFD splitting method, in which a Poisson problem is solved to enforce the incompressibility.</p>
+</div>
+</section>
+<section id="phase-shift-and-velocity-update">
+<h3>Phase Shift and Velocity Update<a class="headerlink" href="#phase-shift-and-velocity-update" title="Permalink to this heading">#</a></h3>
+<p>In the end, the wave function and the velocity are updated, i.e.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{split}
+    \Psi^{n+1} &amp;= e^{-i\frac{\varphi}{\hbar}}\tilde{\Psi}\\
+    \mathbf{u}^{n+1}&amp;= \hbar\,\Re\{-(\Psi^{n+1,*})^T\,i\,\nabla\Psi^{n+1}\} \\
+                    &amp;= \hbar\,\Re\{-i(\psi_1^{n+1,*}\,\nabla\psi_1^{n+1}+\psi_2^{n+1,*}\,\nabla\psi_2^{n+1})\} 
+\end{split}
+\end{equation*}\]</div>
+</section>
+</section>
+<section id="elements-of-functional-analysis">
+<h2>Elements of Functional Analysis<a class="headerlink" href="#elements-of-functional-analysis" title="Permalink to this heading">#</a></h2>
+<p>Before entering into the details of the weak formulations, some definitions must be presented. First, let <span class="math notranslate nohighlight">\(L^2(\Omega)\)</span> be an Hilbert space such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   u\in L^2(\Omega) \Longleftrightarrow \int_\Omega |u|^2\,d\Omega &lt;\infty;
+\end{equation*}\]</div>
+<p>endowed with a scalar product</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \langle{u,v}\rangle = \int_\Omega v^*u\,d\Omega \qquad\qquad \forall u,v\in L^2(\Omega).
+\end{equation*}\]</div>
+<p>The <em>weak</em> solutions are usually searched in the Sobolev functional spaces <span class="math notranslate nohighlight">\(\mathcal{H}^p(\Omega)\)</span> <span id="id11">[<a class="reference internal" href="bibliography.html#id16" title="A. Ferrero, F. Gazzola, and M. Zanotti. Elements of Advanced Mathematical Analysis for Physics and Engineering. Società Editrice Esculapio, iii edition, 2015. ISBN 9788874888955.">FGZ15</a>, <a class="reference internal" href="bibliography.html#id8" title="Sandro Salsa. Equazioni a derivate parziali. Springer Milan, iii edition, 2016. ISBN 978-88-470-5785-2.">Sal16</a>]</span> such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \mathcal{H}^p(\Omega) = \left\{u\in L^2(\Omega)\,:\,\int_\Omega |{D^{\boldsymbol{\alpha}}u}|^2\,d\Omega &lt;\infty \right\},
+\end{equation*}\]</div>
+<p>given <span class="math notranslate nohighlight">\(D^{\boldsymbol{\alpha}}\)</span> the multi-index derivative <span id="id12">[<a class="reference internal" href="bibliography.html#id16" title="A. Ferrero, F. Gazzola, and M. Zanotti. Elements of Advanced Mathematical Analysis for Physics and Engineering. Società Editrice Esculapio, iii edition, 2015. ISBN 9788874888955.">FGZ15</a>]</span> of order <span class="math notranslate nohighlight">\(p\)</span>. Within this mathematical framework, the <em>weak</em> formulation can be obtained by testing the <em>strong</em> form against a {test function} living in a suitable Sobolev space. In the following, the weak formulations for the Schrodinger and Poisson problems will be derived.</p>
+<section id="useful-formulas">
+<h3>Useful formulas<a class="headerlink" href="#useful-formulas" title="Permalink to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{u}\in[\mathcal{H}^1(\Omega)]^d\)</span> a vector function, the Gauss (divergence) theorem states:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_\Omega \nabla \cdot \mathbf{u}\,d\Omega = \int_{\partial\Omega}\mathbf{u}\cdot \mathbf{n}\,d\sigma
+\]</div>
+<p>From this theorem, the following formulas can be derived</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\int_\Omega (\nabla \cdot \mathbf{u}) \,p\,d\Omega = 
+- \int_\Omega \mathbf{u} \cdot \nabla p\,d\Omega + \int_{\partial\Omega}(\mathbf{u}\cdot \mathbf{n})\,p\,d\sigma
+\end{equation*}\]</div>
+<p>given <span class="math notranslate nohighlight">\(p\in\mathcal{H}^1(\Omega)\)</span>.</p>
+<div class="proof admonition" id="proof">
+<p>Proof. Recalling that <span class="math notranslate nohighlight">\( \nabla\cdot (p\,\mathbf{u})=(\nabla \cdot \mathbf{u}) \,p + \mathbf{u} \cdot \nabla p\)</span> we can rewrite the formula as</p>
+<div class="math notranslate nohighlight">
+\[
+\int_\Omega \left[(\nabla \cdot \mathbf{u}) \,p + \mathbf{u} \cdot \nabla p\right] \,d\Omega = 
+\int_\Omega \nabla \cdot (p\mathbf{u})\,d\Omega = \int_{\partial\Omega}(\mathbf{u}\cdot \mathbf{n})\,p\,d\sigma
+\]</div>
+<p>from which thesis follows.</p>
+</div>
+</section>
+</section>
+<section id="weak-formulations">
+<h2>Weak Formulations<a class="headerlink" href="#weak-formulations" title="Permalink to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\Omega\subset\mathbb{R}^{d}\)</span> with <span class="math notranslate nohighlight">\(d=2,3\)</span> and <span class="math notranslate nohighlight">\(\partial \Omega = \Gamma_D\cup\Gamma_N\)</span> its boundary, let us consider the following problem (in strong form):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\left\{
+    \begin{array}{ll}
+        -\Delta u = f &amp; \mbox{in } \Omega\\
+        u = u_D &amp; \mbox{on } \Gamma_D\\
+        \displaystyle \frac{\partial u}{\partial \mathbf{n}} = g_N &amp; \mbox{on } \Gamma_N
+    \end{array}
+\right.
+\end{equation*}\]</div>
+<p>We have a PDE to solve with its boundary condition (BC) associated. The strong solution must be differentiable twice in classical sense and, in general, it is not always possible to prove the well-posedness of these problems. Therefore, it comes the necessity to look for the solution into a broader functional space. Without entering into too much details on this topic, this sections aims to present the typical procedure to be followed when a weak formulation must be derived (its necessary to assemble the algebraic system coming from the Finite element method).</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{V}\subset\mathcal{H}^1, \mathcal{V}_0\subset\mathcal{H}^1\)</span> the trial and test space defined as</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{V} = \left\{v\in\mathcal{H}^1:\;\left. v\right|_{\Gamma_D} = u_D\right\}\qquad 
+\mathcal{V}_0 = \left\{v\in\mathcal{H}^1:\;\left. v\right|_{\Gamma_D} = 0\right\}
+\]</div>
+<p>Given <span class="math notranslate nohighlight">\(v\in\mathcal{V}_0\)</span>, the PDE is multipied (in <span class="math notranslate nohighlight">\(L^2\)</span> sense) by <span class="math notranslate nohighlight">\(v\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\int_\Omega -\Delta u\,v \,d\Omega=\int_\Omega f\,v\,d\Omega\qquad v\in\mathcal{V}_0
+\]</div>
+<p>and by applying the integration by parts formula and the effect of the BCs</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\int_\Omega \nabla u\cdot \nabla v \,d\Omega=\int_\Omega f\,v\,d\Omega+\int_{\Gamma_N}g\,v\,d\sigma\qquad v\in\mathcal{V}_0
+\end{equation*}\]</div>
+<section id="galerkin-approximation">
+<h3>Galerkin approximation<a class="headerlink" href="#galerkin-approximation" title="Permalink to this heading">#</a></h3>
+<p>Let us introduce a computational grid <span class="math notranslate nohighlight">\(\mathcal{T}_h\)</span> (dim<span class="math notranslate nohighlight">\(\mathcal{T}_h = \mathcal{N}_h\)</span>) of the domain <span class="math notranslate nohighlight">\(\Omega\)</span> and the finite dimensional spaces <span class="math notranslate nohighlight">\(\mathcal{V}_h\subset\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{V}_{h,0}\subset\mathcal{V}_0\)</span>. The Galerkin approximation <span id="id13">[<a class="reference internal" href="bibliography.html#id9" title="Alfio Quarteroni. Numerical Models for Differential Problems. Springer, Cham, iii edition, 2016.">Qua16</a>, <a class="reference internal" href="bibliography.html#id10" title="Alfio Quarteroni, Riccardo Sacco, and Fausto Saleri. Numerical Mathematics. Springer, Berlin, Heidelberg, ii edition, 2007. ISBN 978-3-540-49809-4.">QSS07</a>]</span> reads: find <span class="math notranslate nohighlight">\(u_h\in\mathcal{V}_h\)</span> s.t.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\int_\Omega \nabla u_h\cdot \nabla v_h \,d\Omega=\int_\Omega f_h\,v_h\,d\Omega+\int_{\Gamma_N}g\,v_h\,d\sigma\qquad v_h\in\mathcal{V}_{h,0}
+\end{equation*}\]</div>
+</section>
+<section id="finite-element-algebraic-formulation">
+<h3>Finite element algebraic formulation<a class="headerlink" href="#finite-element-algebraic-formulation" title="Permalink to this heading">#</a></h3>
+<p>The finite dimensional formulation is necessary to assemble the associated linear system.
+Let us consider the homogeneous Dirichlet case, <span class="math notranslate nohighlight">\(u_D = 0\)</span> (to which we can
+always reduce through a lifting procedure), and let us introduce a basis <span class="math notranslate nohighlight">\(\left\{\phi_j\right\}_{j=1}^{\mathcal{N}_h}\)</span> such that any function <span class="math notranslate nohighlight">\(u_h\in\mathcal{V}_h\)</span> can be expressed as a linear combination of the basis functions</p>
+<div class="math notranslate nohighlight">
+\[
+u_h(\mathbf{x}) = \sum_{j=1}^{\mathcal{N}_h}\alpha_j \phi_j(\mathbf{x})
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The choice of the basis functions results in different versions of the algebraic system. The most natural choice is given by the <strong>hat functions</strong> <span id="id14">[<a class="reference internal" href="bibliography.html#id10" title="Alfio Quarteroni, Riccardo Sacco, and Fausto Saleri. Numerical Mathematics. Springer, Berlin, Heidelberg, ii edition, 2007. ISBN 978-3-540-49809-4.">QSS07</a>]</span>.</p>
+</div>
+<p>By taking <span class="math notranslate nohighlight">\(v_h=\phi_k\)</span> as the test function, the Galerkin problem reduces to</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\int_\Omega \nabla u_h\cdot \nabla \phi_k \,d\Omega=\int_\Omega f_h\,\phi_k\,d\Omega+\int_{\Gamma_N}g\,\phi_k\,d\sigma\qquad k = 1, \dots, \mathcal{N}_h
+\end{equation*}\]</div>
+<p>then, the linear expansion can be introduced into the problem which results</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{j=1}^{\mathcal{N}_h}\alpha_j \int_\Omega \nabla \phi_j\cdot \nabla \phi_k \,d\Omega=\int_\Omega f_h\,\phi_k\,d\Omega+\int_{\Gamma_N}g\,\phi_k\,d\sigma\qquad k = 1, \dots, \mathcal{N}_h
+\]</div>
+<p>By defining the matrix <span class="math notranslate nohighlight">\(A_{kj} = \displaystyle\int_\Omega \nabla \phi_j\cdot \nabla \phi_k \,d\Omega\)</span> and the vectors <span class="math notranslate nohighlight">\(f_k =  \displaystyle\int_\Omega f_h\,\phi_k\,d\Omega\)</span> and <span class="math notranslate nohighlight">\(g_k =  \displaystyle\int_{\Gamma_N}g\,\phi_k\,d\sigma\)</span>, the problem into the following linear system in the unknowns <span class="math notranslate nohighlight">\(\alpha_j\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\sum_{j=1}^{\mathcal{N}_h}A_{kj}\alpha_j = f_k + g_k\qquad k = 1, \dots, \mathcal{N}_h
+\end{equation*}\]</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to pyISFenix docs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="solvers.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Solvers</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#madelung-transformation">Madelung Transformation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isf-algorithm">ISF algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schrodinger-problem">Schrodinger problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation">Normalisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-projection">Pressure Projection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-shift-and-velocity-update">Phase Shift and Velocity Update</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elements-of-functional-analysis">Elements of Functional Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-formulas">Useful formulas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations">Weak Formulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#galerkin-approximation">Galerkin approximation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-algebraic-formulation">Finite element algebraic formulation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="_sources/theory.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2024, Stefano Riva, Carolina Introini, Antonio Cammi.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
