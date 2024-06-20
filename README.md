@@ -1,12 +1,12 @@
 # MP-pyISFenix
 
-<a href="https://pubs.aip.org/aip/pof/article/36/1/017138/3132670/A-finite-element-implementation-of-the"><img src="https://img.shields.io/badge/Original%20Paper-10.1063/5.0180356-RGB(34, 41, 53)?labelColor=blue&style=flat&link=https://pubs.aip.org/aip/pof/article/36/1/017138/3132670/A-finite-element-implementation-of-the" alt="Original Paper" /></a>
+[![Original Paper [PoF]](https://img.shields.io/badge/Original%20Paper%20%5BPoF%5D-10.1063/5.0180356-gray?labelColor=blue&style=flat&link=https://pubs.aip.org/aip/pof/article/36/1/017138/3132670/A-finite-element-implementation-of-the)](https://pubs.aip.org/aip/pof/article/36/1/017138/3132670/A-finite-element-implementation-of-the)
 
 **PYthon framework for the Incompressible Schrodinger Flow using FENIcsX**
 
 **Authors:** Stefano Riva, Carolina Introini, Antonio Cammi
 
-This repository collects some codes implemented to simulate inviscid fluids by means of the ISF technique, firstly developed by [Albert Chern](https://cseweb.ucsd.edu/~alchern/), adopting Finite Element Methods exploiting the [FEniCSx Library (v. 0.6.0)](https://fenicsproject.org/) for Python, extension to v 0.7.2 is under development.
+This repository collects some codes implemented to simulate inviscid fluids by means of the ISF technique, firstly developed by [Albert Chern](https://cseweb.ucsd.edu/~alchern/), adopting Finite Element Methods exploiting the [FEniCSx Library (v. 0.6.0)](https://fenicsproject.org/) for Python, extension to v0.8.0 is under development.
 
 A **webpage** has been created at the following link [https://ermete-lab.github.io/MP-pyISFenix/intro.html](https://ermete-lab.github.io/MP-pyISFenix/intro.html), including the API documentation of the solvers and some tutorials resembling the case studies of the published papers.
 
@@ -45,6 +45,11 @@ Here in bibtex format
     eprint = {https://pubs.aip.org/aip/pof/article-pdf/doi/10.1063/5.0180356/18930833/017138\_1\_5.0180356.pdf},
 }
 ```
+
+**Recent works using pyISFenix have extended the code to support advection-diffusion of scalars and buoyancy-like forces at the quantum level**:
+
+- S. Riva, C. Introini, L. Marocco, L. Savoldi, and A. Cammi, “Inclusion of the buoyancy forces in the Incompressible Schr ̈odinger Flow algorithm to simulate inviscid fluids,” in 41st UIT International Heat Transfer Conference, (Naples, Italy), 21 June 2024.
+
 
 ## Contact Information
 
