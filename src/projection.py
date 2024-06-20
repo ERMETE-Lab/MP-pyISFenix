@@ -1,8 +1,3 @@
-# Schrodinger Projection Step
-# Author: Stefano Riva, PhD Student, NRG, Politecnico di Milano
-# Latest Code Update: 19 January 2023
-# Latest Doc  Update: 19 January 2023
-
 import numpy as np
 import dolfinx
 from dolfinx import fem
@@ -14,7 +9,6 @@ from mpi4py import MPI
 
 class poisson():
     """
-    
     This class implements the projection step of the Incompressible Schrodinger Flow, in particular the solution of the Poisson problem.
     
     Parameters

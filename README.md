@@ -1,5 +1,7 @@
 # MP-pyISFenix
 
+<a href="https://pubs.aip.org/aip/pof/article/36/1/017138/3132670/A-finite-element-implementation-of-the"><img src="https://img.shields.io/badge/Original%20Paper-10.1063/5.0180356-RGB(34, 41, 53)?labelColor=blue&style=flat&link=https://pubs.aip.org/aip/pof/article/36/1/017138/3132670/A-finite-element-implementation-of-the" alt="Original Paper" /></a>
+
 **PYthon framework for the Incompressible Schrodinger Flow using FENIcsX**
 
 **Authors:** Stefano Riva, Carolina Introini, Antonio Cammi

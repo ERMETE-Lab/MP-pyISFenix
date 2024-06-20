@@ -1,8 +1,3 @@
-# Schrodinger Velocity
-# Author: Stefano Riva, PhD Student, NRG, Politecnico di Milano
-# Latest Code Update: 19 January 2023
-# Latest Doc  Update: 19 January 2023
-
 import numpy as np
 import dolfinx
 from dolfinx import fem
@@ -129,3 +124,30 @@ class computeVelocity():
         self.solution.x.scatter_forward()
 
         return self.solution
+
+##########################################################################################################################################
+###################                                Additional routines                                                    ################
+##########################################################################################################################################
+
+    # def extractLine(self, x_grid, y_grid, u):
+    
+    #     N = len(y_grid)
+
+    #     points = np.zeros((3, N))
+    #     points[0, :] = x_grid
+    #     points[1, :] = y_grid
+
+    #     bb_tree = dolfinx.geometry.BoundingBoxTree(self.domain, self.domain.topology.dim)
+    #     cells = []
+    #     points_on_proc = []
+    #     cell_candidates = dolfinx.geometry.compute_collisions(bb_tree, points.T)
+    #     colliding_cells = dolfinx.geometry.compute_colliding_cells(self.domain, cell_candidates, points.T)
+    #     for i, point in enumerate(points.T):
+    #         if len(colliding_cells.links(i))>0:
+    #             points_on_proc.append(point)
+    #             cells.append(colliding_cells.links(i)[0])
+    #     xPlot = np.array(points_on_proc, dtype=np.float64)
+
+    #     ux = u.sub(0).eval(xPlot, cells).flatten()
+    #     uy = u.sub(1).eval(xPlot, cells).flatten()
+    #     return ux, uy

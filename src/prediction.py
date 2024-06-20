@@ -1,7 +1,7 @@
 # Schrodinger Advection Step
 # Author: Stefano Riva, PhD Student, NRG, Politecnico di Milano
-# Latest Code Update: 19 January 2023
-# Latest Doc  Update: 19 January 2023
+# Latest Code Update: 24 November 2023
+# Latest Doc  Update: 24 November 2023
 
 from math import isclose
 import numpy as np
@@ -131,7 +131,7 @@ class schrodinger():
         self.psi2_in.interpolate(self.wave2)
 
     def assemble(self,  phys_parameters: dict, dt: float = 1e-2, direct : bool = False,
-                        gravity_dict: dict = {'gravity': np.array([0, 0, 0])} ):
+                        gravity_dict: dict = {'gravity': np.array([0, 0, 0]), 'beta': 0, 'Tref': 0} ):
         """
         
         This function assign the boundary condition (if inlet is present), assembles the forms of the weak formulations and creates the linear structures for the solution (matrix, rhs and solver).
@@ -195,10 +195,20 @@ class schrodinger():
             self.g1.interpolate(lambda xx: +(xx[0] * gravity_dict['gravity'][0] + xx[1] * gravity_dict['gravity'][1] + xx[2] * gravity_dict['gravity'][2]))
             self.g2.interpolate(lambda xx: -(xx[0] * gravity_dict['gravity'][0] + xx[1] * gravity_dict['gravity'][1] + xx[2] * gravity_dict['gravity'][2]))
             
+            # Defining the temperature functions
+            self.Tref = Function(self.Qn).copy()
+            self.Told = Function(self.Qn).copy()
+            self.Tref.interpolate(lambda x: gravity_dict['Tref'] + x[0] * 0.0 + x[1] * 0.0)
+            self.Told.interpolate(lambda x: gravity_dict['Tref'] + x[0] * 0.0 + x[1] * 0.0)
             
+            self.beta = PETSc.ScalarType(gravity_dict['beta'])
+        
             # Defining the buoyancy term and add to the lhs
-            self.lhs += inner(self.g1 * self.psi1, self.v1) * self.dx
-            self.lhs += inner(self.g2 * self.psi2, self.v2) * self.dx
+            self._g1 = self.g1 * ( 1 - self.beta * (self.Told - self.Tref) )
+            self._g2 = self.g2 * ( 1 - self.beta * (self.Told - self.Tref) )
+        
+            self.lhs += inner(self._g1 * self.psi1, self.v1) * self.dx
+            self.lhs += inner(self._g2 * self.psi2, self.v2) * self.dx
 
         # Forming the lhs
         self.a = form( self.lhs )
@@ -267,3 +277,98 @@ class schrodinger():
         self.solution.x.scatter_forward()
 
         return self.solution.sub(0).collapse(), self.solution.sub(1).collapse()
+      
+##########################################################################################################################################
+###################                                Additional routines                                                    ################
+##########################################################################################################################################
+
+#     def extractInlet(self, wave_fun, in_size):
+    
+#         Ny = 50
+#         y_grid = np.linspace(0., in_size, Ny)
+
+#         points = np.zeros((3, Ny))
+#         points[0, :] = 0.
+#         points[1, :] = y_grid
+
+#         bb_tree = dolfinx.geometry.BoundingBoxTree(self.domain, self.domain.topology.dim)
+#         cells = []
+#         points_on_proc = []
+#         cell_candidates = dolfinx.geometry.compute_collisions(bb_tree, points.T)
+#         colliding_cells = dolfinx.geometry.compute_colliding_cells(self.domain, cell_candidates, points.T)
+#         for i, point in enumerate(points.T):
+#             if len(colliding_cells.links(i))>0:
+#                 points_on_proc.append(point)
+#                 cells.append(colliding_cells.links(i)[0])
+#         xPlot = np.array(points_on_proc, dtype=np.float64)
+
+#         in_wave = wave_fun.eval(xPlot, cells).flatten()
+#         return in_wave[int(Ny/2)]
+    
+# class normalisation():
+#     """_summary_
+#     """
+#     def __init__(self, domain, ft, boundary_marks : dict, degree_psi = 2):
+        
+#         # Domain
+#         self.domain = domain
+#         self.ft = ft
+#         self.gdim   = self.domain.geometry.dim
+#         self.fdim   = self.gdim - 1  
+
+#         metadata = {"quadrature_degree": 4}
+#         self.dx = ufl.Measure("dx", domain=self.domain, metadata=metadata)
+#         self.ds = ufl.Measure("ds", domain=self.domain, subdomain_data=self.ft, metadata=metadata)
+
+#         # Assign markers
+#         self.inl_marker  = boundary_marks['inlet']
+#         self.out_marker  = boundary_marks['outlet']
+
+#         # Functional Spaces
+#         self.P2 = ufl.FiniteElement("Lagrange", self.domain.ufl_cell(), degree_psi)
+#         self.mixEl = ufl.MixedElement(self.P2, self.P2)
+#         self.V = FunctionSpace(self.domain, self.mixEl)
+
+#         (self.psi1, self.psi2) = ufl.TrialFunctions(self.V)
+#         (self.v1,   self.v2)   = ufl.TestFunctions(self.V)
+
+#     def assemble(self):
+        
+#         self.psiTilde = Function(self.V)
+#         (self.psiTilde_1, self.psiTilde_2) = (self.psiTilde.sub(0).collapse(), self.psiTilde.sub(1).collapse())
+
+#         self.a = form( inner(self.psi1, self.v1) * self.dx + inner(self.psi2, self.v2) * self.dx )
+#         self.L = form( inner(self.psiTilde_1 * ufl.algebra.Power( inner(self.psiTilde_1, self.psiTilde_1) + 
+#                                                                   inner(self.psiTilde_2, self.psiTilde_2), -0.5),
+#                              self.v1) * self.dx +
+#                        inner(self.psiTilde_2 * ufl.algebra.Power( inner(self.psiTilde_1, self.psiTilde_1) + 
+#                                                                   inner(self.psiTilde_2, self.psiTilde_2), -0.5),
+#                              self.v2) * self.dx )
+
+#         self.A = fem.petsc.assemble_matrix(self.a)
+#         self.A.assemble()
+#         self.b = fem.petsc.create_vector(self.L)
+
+#         self.solver = PETSc.KSP().create(self.domain.comm)
+#         self.solver.setOperators(self.A)
+#         self.solver.setType(PETSc.KSP.Type.CG)
+#         self.solver.getPC().setType(PETSc.PC.Type.SOR)
+#         # self.solver.setType(PETSc.KSP.Type.PREONLY)
+#         # self.solver.getPC().setType(PETSc.PC.Type.LU)
+
+#     def solve(self, psiTilde_1, psiTilde_2):
+
+#         with psiTilde_1.vector.localForm() as loc_, self.psiTilde_1.vector.localForm() as loc_n:
+#             loc_.copy(loc_n)
+#         with psiTilde_2.vector.localForm() as loc_, self.psiTilde_2.vector.localForm() as loc_n:
+#             loc_.copy(loc_n)
+        
+#         with self.b.localForm() as loc:
+#             loc.set(0)
+#         fem.petsc.assemble_vector(self.b, self.L)
+#         self.b.ghostUpdate(addv=PETSc.InsertMode.ADD_VALUES, mode=PETSc.ScatterMode.REVERSE)
+
+#         solution = Function(self.V).copy()
+#         self.solver.solve(self.b, solution.vector)
+
+#         return (solution.sub(0).collapse(), solution.sub(1).collapse())
