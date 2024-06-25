@@ -6,7 +6,7 @@
 
 **Authors:** Stefano Riva, Carolina Introini, Antonio Cammi
 
-This repository collects some codes implemented to simulate inviscid fluids by means of the ISF technique, firstly developed by [Albert Chern](https://cseweb.ucsd.edu/~alchern/), adopting Finite Element Methods exploiting the [FEniCSx Library (v. 0.6.0)](https://fenicsproject.org/) for Python, extension to v0.8.0 is under development.
+This repository collects some codes implemented to simulate inviscid fluids by means of the ISF technique, firstly developed by [Albert Chern](https://cseweb.ucsd.edu/~alchern/), adopting Finite Element Methods exploiting the [FEniCSx Library (v. 0.7.2)](https://fenicsproject.org/) for Python, extension to v0.8.0 is under development.
 
 A **webpage** has been created at the following link [https://ermete-lab.github.io/MP-pyISFenix/intro.html](https://ermete-lab.github.io/MP-pyISFenix/intro.html), including the API documentation of the solvers and some tutorials resembling the case studies of the published papers.
 
