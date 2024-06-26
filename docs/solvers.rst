@@ -10,3 +10,4 @@ Each solver for each step of the algorithm is implemented as a `Python` class, w
     Schrodinger Prediction <api/prediction.rst>
     ISF Velocity <api/ISFvelocity.rst>
     Pressure Projection <api/projection.rst>
+    Advection-Diffusion of Scalars <api/scalar_adv_diff.rst>
