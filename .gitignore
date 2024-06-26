@@ -6,6 +6,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Tutorial Outputs
+*.h5
+*.xdmf
+
 # C extensions
 *.so
 

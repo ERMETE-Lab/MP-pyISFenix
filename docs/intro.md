@@ -38,7 +38,7 @@ import gmsh
 import dolfinx
 ```
 
-Be sure to install *gmsh* and *gmsh-api* before *dolfinx=0.6.0* (the package has been tested with real mode of the PETSc library). The instructions to install *dolfinx* are available at [https://github.com/FEniCS/dolfinx#binary](https://github.com/FEniCS/dolfinx#binary).
+Be sure to install *gmsh* and *gmsh-api* before *dolfinx=0.7.2* (the package has been tested with real mode of the PETSc library). The instructions to install *dolfinx* are available at [https://github.com/FEniCS/dolfinx#binary](https://github.com/FEniCS/dolfinx#binary).
 
 ### Set up a conda environment for *ISF*
 
@@ -50,7 +50,7 @@ If not already done, add conda-forge to the channels
 ```bash
 conda config --add channels conda-forge
 ```
-After having activate it, install 
+After having activate it, install
 ```bash
 conda install python=3.10
 ```
@@ -58,9 +58,9 @@ This provides also *pip* which is necessary to install *gmsh* as
 ```bash
 python -m pip install gmsh gmsh-api
 ```
-Now, install *dolfinx* (the current version works with version 0.6.0, an update to version 0.7.2 is under development)
+Now, install *dolfinx* (the current version works with version 0.7.2, an update to version 0.8.0 is under development)
 ```bash
-conda install fenics-dolfinx=0.6.0 petsc=*=complex* mpich pyvista
+conda install fenics-dolfinx=0.7.2 petsc=*=complex* mpich pyvista
 ```
 Add the following packages
 ```bash
