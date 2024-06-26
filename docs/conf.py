@@ -76,3 +76,4 @@ autodoc_mock_imports = ["dolfinx", "ufl", "petsc4py", "pyvista", "h5py"]
 # html_theme = 'sphinx_rtd_theme'
 html_theme = 'pydata_sphinx_theme'
 # html_theme = 'sphinx_book_theme'
+# html_theme = 'sphinx_pdj_theme'
