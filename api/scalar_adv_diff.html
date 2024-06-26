@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>projection module &#8212; ISF  documentation</title>
+    <title>scalar_adv_diff module &#8212; ISF  documentation</title>
   
   
   
@@ -42,11 +42,11 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "tags": "ams", "useLabelIds": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/projection';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/scalar_adv_diff';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="scalar_adv_diff module" href="scalar_adv_diff.html" />
-    <link rel="prev" title="ISFvelocity module" href="ISFvelocity.html" />
+    <link rel="next" title="Tutorials" href="../tutorials.html" />
+    <link rel="prev" title="projection module" href="projection.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -323,8 +323,8 @@ document.write(`
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="prediction.html">Schrodinger Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ISFvelocity.html">ISF Velocity</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pressure Projection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scalar_adv_diff.html">Advection-Diffusion of Scalars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projection.html">Pressure Projection</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Advection-Diffusion of Scalars</a></li>
 </ul>
 </div>
 </nav></div>
@@ -365,7 +365,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../solvers.html" class="nav-link">Solvers</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">projection module</li>
+    <li class="breadcrumb-item active" aria-current="page">scalar_adv_d...</li>
   </ul>
 </nav>
 </div>
@@ -382,57 +382,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-projection">
-<span id="projection-module"></span><h1>projection module<a class="headerlink" href="#module-projection" title="Link to this heading">#</a></h1>
+  <section id="module-scalar_adv_diff">
+<span id="scalar-adv-diff-module"></span><h1>scalar_adv_diff module<a class="headerlink" href="#module-scalar_adv_diff" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="projection.phaseShift">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">projection.</span></span><span class="sig-name descname"><span class="pre">phaseShift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dolfinx.mesh.Mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree_psi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/projection.html#phaseShift"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#projection.phaseShift" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="scalar_adv_diff.adv_diffusion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scalar_adv_diff.</span></span><span class="sig-name descname"><span class="pre">adv_diffusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dolfinx.mesh.Mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ft</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dolfinx.cpp.mesh.MeshTags_int32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary_marks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scalar_adv_diff.html#adv_diffusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scalar_adv_diff.adv_diffusion" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>This class implements the phase shift of the wave functions <span class="math notranslate nohighlight">\([\psi_1, \psi_2]\)</span>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>domain</strong> (<em>dolfinx.mesh.Mesh</em>) – Mesh imported.</p></li>
-<li><p><strong>degree_psi</strong> (<em>int</em><em> (</em><em>Default = 1</em><em>)</em>) – Degree of the polynomials used for the definition of the functional space.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="projection.phaseShift.assemble">
-<span class="sig-name descname"><span class="pre">assemble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hbar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/projection.html#phaseShift.assemble"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#projection.phaseShift.assemble" title="Link to this definition">#</a></dt>
-<dd><p>This function assembles the forms of the weak formulations and creates the linear structures for the solution (matrix, rhs and solver).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>hbar</strong> (<em>float</em>) – Value of <span class="math notranslate nohighlight">\(\hbar\)</span>.</p></li>
-<li><p><strong>direct</strong> (<em>boolean</em><em> (</em><em>Default: False</em><em>)</em>) – Boolean variable to identify if a direct solver must be used.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="projection.phaseShift.solve">
-<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">psiTilde_1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dolfinx.fem.Function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psiTilde_2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dolfinx.fem.Function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dolfinx.fem.Function</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/projection.html#phaseShift.solve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#projection.phaseShift.solve" title="Link to this definition">#</a></dt>
-<dd><p>This function computes the shifted wave function.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>psiTilde_1</strong> (<em>dolfinx.fem.Function</em>) – First component of the wave function <span class="math notranslate nohighlight">\(\tilde{\psi}_1\)</span>.</p></li>
-<li><p><strong>psiTilde_2</strong> (<em>dolfinx.fem.Function</em>) – Second component of the wave function <span class="math notranslate nohighlight">\(\tilde{\psi}_2\)</span>.</p></li>
-<li><p><strong>pressure</strong> (<em>dolfinx.fem.Function</em>) – Pressure computed by the projection step.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="projection.poisson">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">projection.</span></span><span class="sig-name descname"><span class="pre">poisson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dolfinx.mesh.Mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ft</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dolfinx.cpp.mesh.MeshTags_int32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary_marks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/projection.html#poisson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#projection.poisson" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>This class implements the projection step of the Incompressible Schrodinger Flow, in particular the solution of the Poisson problem.</p>
+<p>This class implements the solution of the advection-diffusion of a passive scalar in a flow field:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial T}{\partial t } + \mathbf{u}\cdot \nabla T-\alpha\Delta T=0\]</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -443,20 +401,16 @@ document.write(`
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="projection.poisson.assemble">
-<span class="sig-name descname"><span class="pre">assemble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bc_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gauss</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/projection.html#poisson.assemble"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#projection.poisson.assemble" title="Link to this definition">#</a></dt>
-<dd><p>This function assign the boundary condition (if inlet is present), assembles the forms of the weak formulations and creates the linear structures for the solution (matrix, rhs and solver).</p>
-<p>The weak formulation is as follows:</p>
-<div class="math notranslate nohighlight">
-\[\int_\Omega \nabla \varphi \cdot \nabla q\, d\Omega = - \int_\Omega q\,\nabla \cdot \tilde{\mathbf{u}}\, d\Omega\]</div>
-<p>there is an option to apply the integration by parts on the rhs as</p>
-<div class="math notranslate nohighlight">
-\[\int_\Omega \nabla \varphi \cdot \nabla q\, d\Omega =  \int_\Omega \nabla q\cdot \tilde{\mathbf{u}}\, d\Omega - \int_{\partial \Omega} \tilde{\mathbf{u}}\cdot \mathbf{n}\,q\,d\sigma\]</div>
+<dt class="sig sig-object py" id="scalar_adv_diff.adv_diffusion.assemble">
+<span class="sig-name descname"><span class="pre">assemble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bc_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scalar_adv_diff.html#adv_diffusion.assemble"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scalar_adv_diff.adv_diffusion.assemble" title="Link to this definition">#</a></dt>
+<dd><p>This function assigns the boundary conditions, assembles the forms of the weak formulations and creates the linear structures for the solution (matrix, rhs and solver).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bc_values</strong> (<em>dict</em>) – Dictionary with the boundary conditions parameters.</p></li>
-<li><p><strong>gauss</strong> (<em>boolean</em><em> (</em><em>Default: False</em><em>)</em>) – If <cite>True</cite>, the integration by parts is applied also to the right-hand side.</p></li>
+<li><p><strong>bc_values</strong> (<em>dictionary</em>) – Dictionary with the boundary conditions to assign.</p></li>
+<li><p><strong>dt</strong> (<em>float</em><em> (</em><em>Default: 1e-2</em><em>)</em>) – Time step.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em> (</em><em>Default: 1e-3</em><em>)</em>) – Thermal Diffusivity.</p></li>
+<li><p><strong>T_0</strong> (<em>float</em><em> (</em><em>Default: 0.</em><em>)</em>) – Initial value of the temperature.</p></li>
 <li><p><strong>direct</strong> (<em>boolean</em><em> (</em><em>Default: False</em><em>)</em>) – Boolean variable to identify if a direct solver must be used.</p></li>
 </ul>
 </dd>
@@ -464,12 +418,12 @@ document.write(`
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="projection.poisson.solve">
-<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uTilde</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dolfinx.fem.Function</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/projection.html#poisson.solve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#projection.poisson.solve" title="Link to this definition">#</a></dt>
-<dd><p>This function solves the Poisson problem.</p>
+<dt class="sig sig-object py" id="scalar_adv_diff.adv_diffusion.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uTilde</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dolfinx.fem.Function</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scalar_adv_diff.html#adv_diffusion.solve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scalar_adv_diff.adv_diffusion.solve" title="Link to this definition">#</a></dt>
+<dd><p>This function solves the advection-diffusion problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>uTilde</strong> (<em>dolfinx.fem.Function</em>) – Velocity field coming from the prediction step.</p>
+<dd class="field-odd"><p><strong>uTilde</strong> (<em>dolfinx.fem.Function</em>) – Velocity field coming from the ISF step.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -489,20 +443,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ISFvelocity.html"
+       href="projection.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ISFvelocity module</p>
+        <p class="prev-next-title">projection module</p>
       </div>
     </a>
     <a class="right-next"
-       href="scalar_adv_diff.html"
+       href="../tutorials.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">scalar_adv_diff module</p>
+        <p class="prev-next-title">Tutorials</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -524,14 +478,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projection.phaseShift"><code class="docutils literal notranslate"><span class="pre">phaseShift</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projection.phaseShift.assemble"><code class="docutils literal notranslate"><span class="pre">phaseShift.assemble()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projection.phaseShift.solve"><code class="docutils literal notranslate"><span class="pre">phaseShift.solve()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projection.poisson"><code class="docutils literal notranslate"><span class="pre">poisson</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projection.poisson.assemble"><code class="docutils literal notranslate"><span class="pre">poisson.assemble()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projection.poisson.solve"><code class="docutils literal notranslate"><span class="pre">poisson.solve()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar_adv_diff.adv_diffusion"><code class="docutils literal notranslate"><span class="pre">adv_diffusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar_adv_diff.adv_diffusion.assemble"><code class="docutils literal notranslate"><span class="pre">adv_diffusion.assemble()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar_adv_diff.adv_diffusion.solve"><code class="docutils literal notranslate"><span class="pre">adv_diffusion.solve()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -540,7 +489,7 @@ document.write(`
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/api/projection.rst.txt">
+    <a href="../_sources/api/scalar_adv_diff.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
