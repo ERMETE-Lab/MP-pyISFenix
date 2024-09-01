@@ -59,7 +59,8 @@ Here in bibtex format
 
 **Recent works using pyISFenix have extended the code to support advection-diffusion of scalars and buoyancy-like forces at the quantum level**:
 
-- S. Riva, C. Introini, L. Marocco, L. Savoldi, and A. Cammi, “Inclusion of the buoyancy forces in the Incompressible Schr ̈odinger Flow algorithm to simulate inviscid fluids,” in 41st UIT International Heat Transfer Conference, (Naples, Italy), 21 June 2024.
+- S. Riva, C. Introini, L. Marocco, L. Savoldi, and A. Cammi, “Inclusion of the buoyancy forces in the Incompressible Schroedinger Flow algorithm to simulate inviscid fluids,” in 41st UIT International Heat Transfer Conference, (Naples, Italy), 21 June 2024.
+- S. Riva, C. Introini, X. Wang, and A. Cammi, “Advection-Diffusion of Scalars with the Incompressible Schroedinger Flow,” in The 14th International Topical Meeting on Nuclear Reactor Thermal-Hydraulics, Operation, and Safety (NUTHOS24), (Vancouver, USA), August 2024.
 
 
 ## Contact Information
