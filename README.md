@@ -41,7 +41,7 @@ Here in bibtex format
 
 ```bibtex
 @article{AIP_202401,
-    author = {\textbf{\underline{Stefano Riva}} and Introini, Carolina and Cammi, Antonio},
+    author = {Riva, Stefano and Introini, Carolina and Cammi, Antonio},
     title = "{A finite element implementation of the incompressible Schrödinger flow method}",
     journal = {Physics of Fluids},
     volume = {36},
