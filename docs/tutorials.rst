@@ -12,3 +12,4 @@ In this section, some case studies in which the inviscid flow is simulated with 
         Flow over NACA0012 <tutorials/03_ISF_NACA0012.ipynb>
         Tube Bundle <tutorials/04_ISF_tube_bundle.ipynb>
         Buoyant Tube Bundle <tutorials/05_buoISF_tube_bundle.ipynb>
+        Nuclear Rod 3D <tutorials/06_ISF_NuclearRod3D.ipynb>
