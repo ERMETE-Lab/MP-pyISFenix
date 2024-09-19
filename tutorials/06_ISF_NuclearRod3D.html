@@ -1,0 +1,817 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Nuclear Channel &#8212; ISF  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "tags": "ams", "useLabelIds": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/06_ISF_NuclearRod3D';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bibliography" href="../bibliography.html" />
+    <link rel="prev" title="Tube Bundle" href="05_buoISF_tube_bundle.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ISF  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Welcome to pyISFenix docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../solvers.html">Solvers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/prediction.html">Schrodinger Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/ISFvelocity.html">ISF Velocity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/projection.html">Pressure Projection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/scalar_adv_diff.html">Advection-Diffusion of Scalars</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_ISF_BFS.html">    Backward Facing Step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_ISF_cyl_2D.html">    Flow over Cylinder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_ISF_NACA0012.html">    Flow over NACA0012</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_ISF_tube_bundle.html">    Tube Bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_buoISF_tube_bundle.html">    Buoyant Tube Bundle</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">    Nuclear Rod 3D</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tutorials/06_ISF_NuclearRod3D.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Nuclear Channel</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Time-Loop">Time Loop</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="Nuclear-Channel">
+<h1>Nuclear Channel<a class="headerlink" href="#Nuclear-Channel" title="Link to this heading">#</a></h1>
+<p>This notebook implements the ISF algorithm to simulate inviscid fluids. The mesh is generated with gmsh and loaded in Python within the FEniCSx framework.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">dolfinx.io.gmshio</span> <span class="kn">import</span> <span class="n">model_to_mesh</span><span class="p">,</span> <span class="n">read_from_msh</span>
+<span class="kn">from</span> <span class="nn">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
+<span class="kn">from</span> <span class="nn">dolfinx.io</span> <span class="kn">import</span> <span class="n">XDMFFile</span>
+<span class="kn">from</span> <span class="nn">dolfinx</span> <span class="kn">import</span> <span class="n">mesh</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="kn">import</span> <span class="nn">gmsh</span>
+<span class="kn">from</span> <span class="nn">petsc4py</span> <span class="kn">import</span> <span class="n">PETSc</span>
+
+<span class="n">mesh_comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>
+<span class="n">model_rank</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">mesh_factor</span> <span class="o">=</span> <span class="mf">0.035</span>
+<span class="n">use_msh</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">gdim</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">if</span> <span class="n">use_msh</span><span class="p">:</span>
+    <span class="n">domain</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">ft</span> <span class="o">=</span> <span class="n">read_from_msh</span><span class="p">(</span><span class="s2">&quot;mesh/nucchannel_gmsh.msh&quot;</span><span class="p">,</span> <span class="n">comm</span><span class="o">=</span><span class="n">mesh_comm</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="n">model_rank</span><span class="p">,</span> <span class="n">gdim</span> <span class="o">=</span> <span class="n">gdim</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Initialize the gmsh module</span>
+    <span class="n">gmsh</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+
+    <span class="c1"># Load the .geo file</span>
+    <span class="n">gmsh</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="s1">&#39;mesh/nucchannel_gmsh.geo&#39;</span><span class="p">)</span>
+    <span class="n">gmsh</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">geo</span><span class="o">.</span><span class="n">synchronize</span><span class="p">()</span>
+
+    <span class="c1"># Set algorithm (adaptive = 1, Frontal-Delaunay = 6)</span>
+    <span class="n">gmsh</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">setNumber</span><span class="p">(</span><span class="s2">&quot;Mesh.Algorithm&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="n">gmsh</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">setNumber</span><span class="p">(</span><span class="s2">&quot;Mesh.MeshSizeFactor&quot;</span><span class="p">,</span> <span class="n">mesh_factor</span><span class="p">)</span>
+
+    <span class="c1"># Linear Finite Element</span>
+    <span class="n">gmsh</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">gdim</span><span class="p">)</span>
+    <span class="n">gmsh</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="s2">&quot;Netgen&quot;</span><span class="p">)</span>
+
+    <span class="n">clear_output</span><span class="p">()</span>
+
+    <span class="c1"># gmsh.write(&#39;mesh/nucchannel_gmsh.vtk&#39;)</span>
+    <span class="n">gmsh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;mesh/nucchannel_gmsh.msh&#39;</span><span class="p">)</span>
+
+    <span class="n">domain</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ft</span> <span class="o">=</span> <span class="n">model_to_mesh</span><span class="p">(</span><span class="n">gmsh</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span> <span class="n">model_rank</span><span class="p">,</span> <span class="n">gdim</span> <span class="o">=</span> <span class="n">gdim</span> <span class="p">)</span>
+    <span class="n">gmsh</span><span class="o">.</span><span class="n">finalize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Info    : Reading &#39;mesh/nucchannel_gmsh.msh&#39;...
+Info    : 88 entities
+Info    : 40475 nodes
+Info    : 219289 elements
+Info    : Done reading &#39;mesh/nucchannel_gmsh.msh&#39;
+</pre></div></div>
+</div>
+<p>Let us define the boundary markers</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ft</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Facet markers&quot;</span>
+
+<span class="n">boundary_markers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">boundary_markers</span><span class="p">[</span><span class="s1">&#39;inlet&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="mi">100</span>
+<span class="n">boundary_markers</span><span class="p">[</span><span class="s1">&#39;outlet&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">110</span>
+<span class="n">boundary_markers</span><span class="p">[</span><span class="s1">&#39;lateral_walls&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="mi">120</span>
+<span class="n">boundary_markers</span><span class="p">[</span><span class="s1">&#39;control_rod&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="mi">130</span>
+<span class="n">boundary_markers</span><span class="p">[</span><span class="s1">&#39;top_right_nuc&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="mi">140</span>
+<span class="n">boundary_markers</span><span class="p">[</span><span class="s1">&#39;top_left_nuc&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="mi">150</span>
+<span class="n">boundary_markers</span><span class="p">[</span><span class="s1">&#39;bottom_left_nuc&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">160</span>
+<span class="n">boundary_markers</span><span class="p">[</span><span class="s1">&#39;bottom_right_nuc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">170</span>
+
+<span class="n">domain_marker</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(40475, 3)
+</pre></div></div>
+</div>
+<p>The ISF algorithm is based on the analogy between hydrodynamics and quantum mechinacs: in fact, it can be shown thta the Euler equations <span class="math">\begin{equation}
+\partial_t\mathbf{u}=-\left(\mathbf{u}\cdot \nabla\right)\mathbf{u} -\nabla p +\mathbf{g} \qquad \text{ with } \nabla \cdot \mathbf{u} = 0
+\end{equation}</span> are equivalent to a 2-component wave function <span class="math notranslate nohighlight">\(\Psi=[\psi_1,\psi_2]^T\in\mathbb{C}^2\)</span>, solution to Schrodinger equation <span class="math">\begin{equation}
+i\hbar \partial_t \Psi =- 0.5 \cdot \hbar^2 \Delta \Psi + p \Psi + \mathbb{G}\cdot \Psi
+\end{equation}</span> and constrained to <span class="math">\begin{equation}
+\mathfrak{Re}\left\{\left(\Psi^T\right)^*i\,\Delta\Psi\right\} = 0
+\end{equation}</span></p>
+<p>The solution algorithm is divided into three main steps, at each time iteration:</p>
+<ol class="arabic simple">
+<li><p>Advection: through the free-particle Schrodinger</p></li>
+<li><p>Pressure projection: Poisson problem to have a divergence free velocity</p></li>
+<li><p>Phase shift</p></li>
+<li><p>Solution of other physics (e.g., temperature advection-diffusion)</p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tqdm</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/home/paolo/Github/ISF-dev/.&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">src.prediction</span> <span class="kn">import</span> <span class="n">schrodinger</span>
+<span class="kn">from</span> <span class="nn">src.ISFvelocity</span> <span class="kn">import</span> <span class="n">computeVelocity</span>
+<span class="kn">from</span> <span class="nn">src.projection</span> <span class="kn">import</span> <span class="n">poisson</span><span class="p">,</span> <span class="n">phaseShift</span>
+<span class="kn">from</span> <span class="nn">src.scalar_adv_diff</span> <span class="kn">import</span> <span class="n">adv_diffusion</span>
+</pre></div>
+</div>
+</div>
+<section id="Time-Loop">
+<h2>Time Loop<a class="headerlink" href="#Time-Loop" title="Link to this heading">#</a></h2>
+<p>An inlet velocity <span class="math notranslate nohighlight">\(\mathbf{u}_{in}\)</span> is used and the total simulation time is <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inlet velocity</span>
+<span class="n">u_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+
+<span class="c1"># Time parameters</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">4.</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">1e-2</span>
+<span class="n">num_steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Equivalent viscosity</span>
+<span class="n">hbar</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="c1"># Assigning physical paramemeters</span>
+<span class="n">phys_parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uin&#39;</span><span class="p">:</span> <span class="n">u_in</span><span class="p">,</span> <span class="s1">&#39;hbar&#39;</span><span class="p">:</span> <span class="n">hbar</span><span class="p">}</span>
+<span class="n">gravity_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;gravity&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.81</span><span class="p">]),</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;Tref&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+<span class="c1"># Degree of the polynomial for FEM - the Neumann BC at the outlet for step 2 either requires a finer mesh or degree_psi = 2</span>
+<span class="n">degree_psi</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1">### Assembling forms #####</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Assembling Schrodinger predict&#39;</span><span class="p">)</span>
+<span class="n">step1</span> <span class="o">=</span> <span class="n">schrodinger</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">ft</span><span class="p">,</span> <span class="n">boundary_marks</span><span class="o">=</span><span class="n">boundary_markers</span><span class="p">,</span> <span class="n">degree_psi</span> <span class="o">=</span> <span class="n">degree_psi</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">0</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mf">.1</span> <span class="o">+</span> <span class="mi">0</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span><span class="p">]))</span>
+<span class="n">step1</span><span class="o">.</span><span class="n">assemble</span><span class="p">(</span><span class="n">phys_parameters</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span> <span class="n">gravity_dict</span><span class="o">=</span><span class="n">gravity_dict</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Assembling Schrodinger velocity&#39;</span><span class="p">)</span>
+<span class="n">ISF_vel</span> <span class="o">=</span> <span class="n">computeVelocity</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">degree_psi</span><span class="o">=</span><span class="n">degree_psi</span><span class="p">)</span>
+<span class="n">ISF_vel</span><span class="o">.</span><span class="n">assemble</span><span class="p">(</span><span class="n">hbar</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Assembling Poisson&#39;</span><span class="p">)</span>
+<span class="n">step2</span> <span class="o">=</span> <span class="n">poisson</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">ft</span><span class="p">,</span> <span class="n">boundary_marks</span><span class="o">=</span><span class="n">boundary_markers</span><span class="p">)</span>
+<span class="n">bc_poisson_values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uin&#39;</span><span class="p">:</span> <span class="n">u_in</span><span class="p">,</span> <span class="s1">&#39;fully_Neumann&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;is_dirichlet&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="n">step2</span><span class="o">.</span><span class="n">assemble</span><span class="p">(</span><span class="n">bc_poisson_values</span><span class="p">,</span> <span class="n">gauss</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Assembling Schrodinger phase-shift&#39;</span><span class="p">)</span>
+<span class="n">step3</span> <span class="o">=</span> <span class="n">phaseShift</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">degree_psi</span> <span class="o">=</span> <span class="n">degree_psi</span><span class="p">)</span>
+<span class="n">step3</span><span class="o">.</span><span class="n">assemble</span><span class="p">(</span><span class="n">hbar</span><span class="p">)</span>
+
+<span class="c1">##### Store solution #####</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;Results/NuclearRod/&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;mkdir &quot;</span><span class="o">+</span><span class="n">path</span><span class="p">)</span>
+
+<span class="n">psi1_xdmf</span> <span class="o">=</span> <span class="n">XDMFFile</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">comm</span><span class="p">,</span> <span class="n">path</span><span class="o">+</span><span class="s2">&quot;psi1.xdmf&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">psi2_xdmf</span> <span class="o">=</span> <span class="n">XDMFFile</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">comm</span><span class="p">,</span> <span class="n">path</span><span class="o">+</span><span class="s2">&quot;psi2.xdmf&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">p_xdmf</span> <span class="o">=</span> <span class="n">XDMFFile</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">comm</span><span class="p">,</span> <span class="n">path</span><span class="o">+</span><span class="s2">&quot;p.xdmf&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">u_xdmf</span> <span class="o">=</span> <span class="n">XDMFFile</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">comm</span><span class="p">,</span> <span class="n">path</span><span class="o">+</span><span class="s2">&quot;U.xdmf&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+
+<span class="n">psi1_xdmf</span><span class="o">.</span><span class="n">write_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+<span class="n">psi2_xdmf</span><span class="o">.</span><span class="n">write_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+<span class="n">p_xdmf</span><span class="o">.</span><span class="n">write_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+<span class="n">u_xdmf</span><span class="o">.</span><span class="n">write_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+
+<span class="n">save_tilde</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">if</span> <span class="n">save_tilde</span><span class="p">:</span>
+    <span class="n">psi1_Tilde_xdmf</span> <span class="o">=</span> <span class="n">XDMFFile</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">comm</span><span class="p">,</span> <span class="n">path</span><span class="o">+</span><span class="s2">&quot;psi1_tilde.xdmf&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">psi2_Tilde_xdmf</span> <span class="o">=</span> <span class="n">XDMFFile</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">comm</span><span class="p">,</span> <span class="n">path</span><span class="o">+</span><span class="s2">&quot;psi2_tilde.xdmf&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">psi1_Tilde_xdmf</span><span class="o">.</span><span class="n">write_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+    <span class="n">psi2_Tilde_xdmf</span><span class="o">.</span><span class="n">write_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Assembling Schrodinger predict
+Assembling Schrodinger velocity
+Assembling Poisson
+Assembling Schrodinger phase-shift
+</pre></div></div>
+</div>
+<p>The advection diffusion equation reads <span class="math">\begin{equation}
+\frac{\partial T}{\partial t} + \mathbf{u}\cdot \nabla T - \alpha \Delta T =0
+\end{equation}</span></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature_bound_marks</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;dirichlet&#39;</span> <span class="p">:</span> <span class="nb">dict</span><span class="p">(),</span>
+    <span class="s1">&#39;neumann&#39;</span>   <span class="p">:</span> <span class="nb">dict</span><span class="p">(),</span>
+    <span class="s1">&#39;robin&#39;</span>     <span class="p">:</span> <span class="kc">None</span>
+<span class="p">}</span>
+
+<span class="c1"># Define class for passive scalar transport</span>
+<span class="n">_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dirichlet&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;inlet&#39;</span><span class="p">,</span> <span class="s1">&#39;control_rod&#39;</span><span class="p">],</span>
+          <span class="s1">&#39;neumann&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;top_right_nuc&#39;</span><span class="p">,</span> <span class="s1">&#39;top_left_nuc&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom_left_nuc&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom_right_nuc&#39;</span><span class="p">]}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_names</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+        <span class="n">temperature_bound_marks</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">boundary_markers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+<span class="n">particles</span> <span class="o">=</span> <span class="n">adv_diffusion</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">ft</span><span class="p">,</span> <span class="n">temperature_bound_marks</span><span class="p">)</span>
+
+<span class="n">bc_values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dirichlet&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(),</span> <span class="s1">&#39;neumann&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">()}</span>
+
+<span class="c1"># Define boundaries values</span>
+<span class="n">assigned_temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">assigned_temperatures</span><span class="p">)):</span>
+    <span class="n">bc_values</span><span class="p">[</span><span class="s1">&#39;dirichlet&#39;</span><span class="p">][</span><span class="n">_names</span><span class="p">[</span><span class="s1">&#39;dirichlet&#39;</span><span class="p">][</span><span class="n">ii</span><span class="p">]]</span> <span class="o">=</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="n">assigned_temperatures</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+
+<span class="n">assigned_heat_flux</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">assigned_heat_flux</span><span class="p">)):</span>
+    <span class="n">bc_values</span><span class="p">[</span><span class="s1">&#39;neumann&#39;</span><span class="p">][</span><span class="n">_names</span><span class="p">[</span><span class="s1">&#39;neumann&#39;</span><span class="p">][</span><span class="n">ii</span><span class="p">]]</span> <span class="o">=</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="n">assigned_heat_flux</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+
+<span class="c1"># Assembling the differential problem</span>
+<span class="n">particles</span><span class="o">.</span><span class="n">assemble</span><span class="p">(</span><span class="n">bc_values</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">5e-4</span><span class="p">,</span> <span class="n">T_0</span><span class="o">=</span><span class="n">gravity_dict</span><span class="p">[</span><span class="s1">&#39;Tref&#39;</span><span class="p">])</span>
+
+<span class="c1"># Create file for storage</span>
+<span class="n">T_xdmf</span> <span class="o">=</span> <span class="n">XDMFFile</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">comm</span><span class="p">,</span> <span class="n">path</span><span class="o">+</span><span class="s2">&quot;T.xdmf&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">T_xdmf</span><span class="o">.</span><span class="n">write_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Let us solve the transient.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dolfinx</span> <span class="kn">import</span> <span class="n">common</span>
+
+<span class="c1"># Sampling rate to store the data</span>
+<span class="n">LL</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">steps</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1a&quot;</span><span class="p">,</span> <span class="s2">&quot;1b&quot;</span><span class="p">,</span> <span class="s2">&quot;1c&quot;</span><span class="p">,</span> <span class="s2">&quot;2 &quot;</span><span class="p">,</span> <span class="s2">&quot;3a&quot;</span><span class="p">,</span> <span class="s2">&quot;3b&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">]</span>
+<span class="n">t_steps</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">progress</span> <span class="o">=</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Advancing in time&quot;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="n">num_steps</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">nn</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+
+    <span class="c1">## Step 1a: advection</span>
+    <span class="k">with</span> <span class="n">common</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;~Step 1a&quot;</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">gravity_dict</span><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">psi1_adv</span><span class="p">,</span> <span class="n">psi2_adv</span> <span class="o">=</span> <span class="n">step1</span><span class="o">.</span><span class="n">advect</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">psi1_adv</span><span class="p">,</span> <span class="n">psi2_adv</span> <span class="o">=</span> <span class="n">step1</span><span class="o">.</span><span class="n">advect</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="n">particles</span><span class="o">.</span><span class="n">Told</span><span class="p">)</span>
+
+    <span class="c1">## Step 1b: normalisation</span>
+    <span class="k">with</span> <span class="n">common</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;~Step 1b&quot;</span><span class="p">):</span>
+        <span class="n">PsiTilde_1</span> <span class="o">=</span> <span class="n">psi1_adv</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">PsiTilde_2</span> <span class="o">=</span> <span class="n">psi2_adv</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">psi1_adv</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:])</span> <span class="o">*</span> <span class="n">psi1_adv</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">psi2_adv</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:])</span> <span class="o">*</span> <span class="n">psi2_adv</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:])</span>
+        <span class="n">PsiTilde_1</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">psi1_adv</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:]</span> <span class="o">/</span> <span class="n">norm</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">PsiTilde_2</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">psi2_adv</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:]</span> <span class="o">/</span> <span class="n">norm</span><span class="o">.</span><span class="n">real</span>
+
+    <span class="c1">## Step 1c: compute non-solenoidal velocity</span>
+    <span class="k">with</span> <span class="n">common</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;~Step 1c&quot;</span><span class="p">):</span>
+        <span class="n">uTilde</span> <span class="o">=</span> <span class="n">ISF_vel</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">PsiTilde_1</span><span class="p">,</span> <span class="n">PsiTilde_2</span><span class="p">)</span>
+
+    <span class="c1">## Step 2: pressure projection</span>
+    <span class="k">with</span> <span class="n">common</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;~Step 2 &quot;</span><span class="p">):</span>
+        <span class="n">pressure</span> <span class="o">=</span> <span class="n">step2</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">uTilde</span><span class="p">)</span>
+
+    <span class="c1">## Step 3a: phase shift</span>
+    <span class="k">with</span> <span class="n">common</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;~Step 3a&quot;</span><span class="p">):</span>
+        <span class="n">Psi_1</span><span class="p">,</span> <span class="n">Psi_2</span> <span class="o">=</span> <span class="n">step3</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">PsiTilde_1</span><span class="p">,</span> <span class="n">PsiTilde_2</span><span class="p">,</span> <span class="n">pressure</span><span class="p">)</span>
+
+    <span class="c1">## Step 3b: compute new velocity</span>
+    <span class="k">with</span> <span class="n">common</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;~Step 3b&quot;</span><span class="p">):</span>
+        <span class="n">u_new</span> <span class="o">=</span> <span class="n">ISF_vel</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Psi_1</span><span class="p">,</span> <span class="n">Psi_2</span><span class="p">)</span>
+
+    <span class="c1">## Step 4: Temperature advection-diffusion</span>
+    <span class="k">with</span> <span class="n">common</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;~Step 4&quot;</span><span class="p">):</span>
+        <span class="n">T_new</span> <span class="o">=</span> <span class="n">particles</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">u_new</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">((</span><span class="n">nn</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">LL</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">pressure</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;p&quot;</span>
+        <span class="n">Psi_1</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;psi_1&quot;</span>
+        <span class="n">Psi_2</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;psi_2&quot;</span>
+        <span class="n">u_new</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;U&quot;</span>
+        <span class="n">T_new</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;T&quot;</span>
+        <span class="n">p_xdmf</span><span class="o">.</span><span class="n">write_function</span><span class="p">(</span><span class="n">pressure</span><span class="p">,</span> <span class="p">(</span><span class="n">nn</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+        <span class="n">psi1_xdmf</span><span class="o">.</span><span class="n">write_function</span><span class="p">(</span><span class="n">Psi_1</span><span class="p">,</span> <span class="p">(</span><span class="n">nn</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+        <span class="n">psi2_xdmf</span><span class="o">.</span><span class="n">write_function</span><span class="p">(</span><span class="n">Psi_2</span><span class="p">,</span> <span class="p">(</span><span class="n">nn</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+        <span class="n">u_xdmf</span><span class="o">.</span><span class="n">write_function</span><span class="p">(</span><span class="n">u_new</span><span class="p">,</span> <span class="p">(</span><span class="n">nn</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+        <span class="n">T_xdmf</span><span class="o">.</span><span class="n">write_function</span><span class="p">(</span><span class="n">T_new</span><span class="p">,</span> <span class="p">(</span><span class="n">nn</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">save_tilde</span><span class="p">:</span>
+            <span class="n">psi1_Tilde_xdmf</span><span class="o">.</span><span class="n">write_function</span><span class="p">(</span><span class="n">PsiTilde_1</span><span class="p">,</span> <span class="p">(</span><span class="n">nn</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+            <span class="n">psi2_Tilde_xdmf</span><span class="o">.</span><span class="n">write_function</span><span class="p">(</span><span class="n">PsiTilde_2</span><span class="p">,</span> <span class="p">(</span><span class="n">nn</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+
+    <span class="c1"># Update Old</span>
+    <span class="k">with</span> <span class="n">Psi_1</span><span class="o">.</span><span class="n">vector</span><span class="o">.</span><span class="n">localForm</span><span class="p">()</span> <span class="k">as</span> <span class="n">loc_</span><span class="p">,</span> <span class="n">step1</span><span class="o">.</span><span class="n">psi1_old</span><span class="o">.</span><span class="n">vector</span><span class="o">.</span><span class="n">localForm</span><span class="p">()</span> <span class="k">as</span> <span class="n">loc_n</span><span class="p">:</span>
+        <span class="n">loc_</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">loc_n</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">Psi_2</span><span class="o">.</span><span class="n">vector</span><span class="o">.</span><span class="n">localForm</span><span class="p">()</span> <span class="k">as</span> <span class="n">loc_</span><span class="p">,</span> <span class="n">step1</span><span class="o">.</span><span class="n">psi2_old</span><span class="o">.</span><span class="n">vector</span><span class="o">.</span><span class="n">localForm</span><span class="p">()</span> <span class="k">as</span> <span class="n">loc_n</span><span class="p">:</span>
+        <span class="n">loc_</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">loc_n</span><span class="p">)</span>
+
+    <span class="n">t_steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
+        <span class="n">t_steps</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mesh_comm</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">common</span><span class="o">.</span><span class="n">timing</span><span class="p">(</span><span class="s2">&quot;~Step &quot;</span><span class="o">+</span><span class="n">step</span><span class="p">),</span> <span class="n">root</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">p_xdmf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">psi1_xdmf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">psi2_xdmf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">u_xdmf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">T_xdmf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">save_tilde</span><span class="p">:</span>
+    <span class="n">psi1_Tilde_xdmf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">psi2_Tilde_xdmf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">del</span> <span class="n">progress</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Advancing in time:   5%|▍         | 19/400 [04:53&lt;6:49:34, 64.50s/it]
+</pre></div></div>
+</div>
+<p>In the end, let us print the time required by each step during the simulation</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">mesh_comm</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time-step breakdown&quot;</span><span class="p">)</span>
+    <span class="n">step_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">t_steps</span><span class="p">)</span>
+    <span class="n">time_per_run</span> <span class="o">=</span> <span class="n">step_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">step_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">jj</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Step &quot;</span><span class="o">+</span><span class="n">step</span><span class="o">+</span><span class="sa">f</span><span class="s2">&quot;: Min time: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">time_per_run</span><span class="p">[:,</span><span class="w"> </span><span class="n">jj</span><span class="p">])</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">, Max time: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">time_per_run</span><span class="p">[:,</span><span class="w"> </span><span class="n">jj</span><span class="p">])</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Time-step breakdown
+Step 1a: Min time: 6.168e-01, Max time: 6.399e-01
+Step 1b: Min time: 2.409e-03, Max time: 2.770e-03
+Step 1c: Min time: 7.203e-01, Max time: 8.996e-01
+Step 2 : Min time: 8.623e-01, Max time: 9.457e-01
+Step 3a: Min time: 6.385e-01, Max time: 7.601e-01
+Step 3a: Min time: 6.385e-01, Max time: 7.601e-01
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05_buoISF_tube_bundle.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tube Bundle</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../bibliography.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliography</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Time-Loop">Time Loop</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stefano Riva, Carolina Introini, Antonio Cammi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Stefano Riva, Carolina Introini, Antonio Cammi.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
