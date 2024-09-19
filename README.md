@@ -30,6 +30,7 @@ In this repository, the full code of the case studies investigated by the author
 | [Flow Over NACA0012](https://ermete-lab.github.io/MP-pyISFenix/tutorials/03_ISF_NACA0012.html)          | [AIP-2024](https://pubs.aip.org/aip/pof/article/36/1/017138/3132670/A-finite-element-implementation-of-the)                                                                  |
 | [Gravity - Tube Bundle](https://ermete-lab.github.io/MP-pyISFenix/tutorials/04_ISF_tube_bundle.html)    | [AIP-2024](https://pubs.aip.org/aip/pof/article/36/1/017138/3132670/A-finite-element-implementation-of-the)                                                                  |
 | [Buoyant - Tube Bundle](https://ermete-lab.github.io/MP-pyISFenix/tutorials/05_buoISF_tube_bundle.html) | [UIT-2024](https://www.researchgate.net/publication/381707814_Inclusion_of_the_buoyancy_forces_in_the_Incompressible_Schrodinger_Flow_algorithm_to_simulate_inviscid_fluids) |
+| [Nuclear Rod 3D](https://ermete-lab.github.io/MP-pyISFenix/tutorials/06_ISF_NuclearRod3D.html)          | [NUTHOS-2024](https://www.researchgate.net/publication/384146880_Advection-diffusion_of_scalars_with_the_Incompressible_Schrodinger_Flow)                                    |
 
 ## How to cite
 If you use this code in your research, please cite the following paper
